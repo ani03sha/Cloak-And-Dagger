@@ -14,6 +14,6 @@ public class HelloWorldController {
 	@RequestMapping("/")
 	@ResponseBody
 	String index() {
-		return "Hello, World!";
+		return "Hello, World! Magic of DevTools";
 	}
 }
