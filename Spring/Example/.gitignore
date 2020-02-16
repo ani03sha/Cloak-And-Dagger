@@ -10,6 +10,7 @@
 
 #Gradle temporary files
 target/
+bin/
 
 #Eclipse files
 **/.project
