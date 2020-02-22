@@ -9,6 +9,10 @@ class CourseDataService {
     retrieveAllCourses(name) {
         return axios.get(`${INSTRUCTOR_API_URL}/courses`);
     }
+
+    deleteCourse(name, id) {
+        return axios.delete(`${INSTRUCTOR_API_URL}/courses/${id}`)
+    }
 }
 
 export default new CourseDataService();
