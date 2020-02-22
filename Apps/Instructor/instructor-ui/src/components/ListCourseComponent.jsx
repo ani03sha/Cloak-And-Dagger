@@ -11,6 +11,9 @@ class ListCourseComponent extends Component {
             courses: [],
             message: null
         }
+        this.deleteCourseClicked = this.deleteCourseClicked.bind(this)
+        this.updateCourseClicked = this.updateCourseClicked.bind(this)
+        this.addCourseClicked = this.addCourseClicked.bind(this)
         this.refreshCourses = this.refreshCourses.bind(this)
     }
 
@@ -36,13 +39,21 @@ class ListCourseComponent extends Component {
                             this.refreshCourses()
                         }
                     )
-        }
+    }
+    
+    updateCourseClicked(id) {
+        this.props.history.push(`/courses/${id}`)
+    }
+
+    addCourseClicked() {
+        this.props.history.push(`/courses/-1`)
+    }
 
     render() {
         return(
             <div className='container'>
                 <h3>All Courses</h3>
-                {this.state.message && <div class='alert alert-success'>{this.state.message}</div>}
+                {this.state.message && <div className='alert alert-success'>{this.state.message}</div>}
                 <div className='container'>
                     <table className='table'>
                         <thead>
@@ -50,6 +61,7 @@ class ListCourseComponent extends Component {
                                 <th>Id</th>
                                 <th>Description</th>
                                 <th>Delete</th>
+                                <th>Update</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,11 +74,17 @@ class ListCourseComponent extends Component {
                                             <td>
                                                 <button className='btn btn-warning' onClick={() => this.deleteCourseClicked(course.id)}>Delete</button>
                                             </td>
+                                            <td>
+                                                <button className='btn btn-success' onClick={() => this.updateCourseClicked(course.id)}>Update</button>
+                                            </td>
                                         </tr>
                                 )
                             }
                         </tbody>
                     </table>
+                    <div className='row'>
+                        <button className="btn btn-success" onClick={this.addCourseClicked}>Add</button>
+                    </div>
                 </div>
             </div>
         );
