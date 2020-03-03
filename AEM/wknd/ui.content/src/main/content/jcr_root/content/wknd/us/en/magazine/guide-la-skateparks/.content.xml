@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2020-03-02T20:06:45.236+05:30"
+        cq:lastModified="{Date}2020-03-03T21:27:17.223+05:30"
         cq:lastModifiedBy="admin"
         cq:template="/conf/wknd/settings/wcm/templates/article-page-template"
         jcr:primaryType="cq:PageContent"
@@ -31,6 +31,7 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wcm/foundation/components/responsivegrid">
                     <title
+                        cq:styleIds="[1583244112539]"
                         jcr:created="{Date}2020-03-02T19:51:46.444+05:30"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2020-03-02T19:51:46.444+05:30"
@@ -63,6 +64,26 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="wknd/components/content/image"
                         fileReference="/content/dam/wknd/en/magazine/la-skateparks/article_01_picture_01.png"/>
+                    <text_186926241
+                        cq:styleIds="[1583244603432]"
+                        jcr:created="{Date}2020-03-03T19:42:36.110+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2020-03-03T19:43:52.251+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wknd/components/content/text"
+                        text="&lt;blockquote>&amp;quot;There is no better place to shred than Los Angeles&amp;quot;&lt;/blockquote>&#xd;&#xa;&lt;blockquote>Jacob Wester - Pro Skater&lt;/blockquote>&#xd;&#xa;"
+                        textIsRich="true"/>
+                    <byline
+                        jcr:created="{Date}2020-03-03T21:18:27.165+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2020-03-03T21:27:17.218+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wknd/components/content/byline"
+                        fileReference="/content/dam/wknd/en/magazine/la-skateparks/stacey-roswells.jpg"
+                        name="Stacey Rosewells"
+                        occupations="[Blogger,Photographer]"/>
                 </responsivegrid>
                 <responsivegrid_1425268658
                     jcr:created="{Date}2020-03-02T19:46:29.997+05:30"
