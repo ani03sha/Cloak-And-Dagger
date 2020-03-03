@@ -1,4 +1,73 @@
-.cmp-experiencefragment {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+/* Header Style */
+.cmp-experiencefragment--header {
+
+    .cmp-experiencefragment {
+        max-width: $max-width;
+        margin: 0 auto;
+    }
+
+    /* Logo Image */
+    .cmp-image__image {
+        max-width: 8rem;
+        margin-top: $gutter-padding / 2;
+        margin-bottom: $gutter-padding / 2;
+    }
+
+    @media (max-width: $screen-medium) {
+
+        .cmp-experiencefragment {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        /* Logo Image */
+        .cmp-image__image {
+            max-width: 6rem;
+            margin-top: .75rem;
+        }
+    }
+}
+
+/* Footer Style */
+.cmp-experiencefragment--footer {
+
+    background-color: $black;
+    color: $gray-light;
+    margin-top: 5rem;
+
+    p {
+        font-size: $font-size-small;
+    }
+
+    .cmp-experiencefragment {
+        max-width: $max-width;
+        margin: 0 auto;
+        padding-bottom: 0rem;
+    }
+
+    /* Separator */
+    .cmp-separator {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .cmp-separator__horizontal-rule {
+        border: 0;
+    }
+
+    /* Navigation */
+    .cmp-navigation__item-link {
+        color: $nav-link-inverse;
+        &:hover,
+        &:focus {
+            background-color: unset;
+            text-decoration: underline;
+        }
+    }
+
+    .cmp-navigation__item--level-1.cmp-navigation__item--active .cmp-navigation__item-link {
+        background-color: unset;
+        color: $gray-lighter;
+        text-decoration: underline;
+    }
+
 }
