@@ -1,9 +1,10 @@
 import React from 'react';
+import './ImageSearch.css';
 
-const ImageSearch = (props) => {
+const ImageSearch = ({ handleGetRequest }) => {
     return(
-        <div>
-            <form onSubmit={props.handleGetRequest}>
+        <div className="imageSearch">
+            <form onSubmit={ handleGetRequest } className="imageSearch__form">
                 <input type="text" autoComplete="off" name="searchValue" placeholder="Search for images" />
                 <button>Search</button>
             </form>
