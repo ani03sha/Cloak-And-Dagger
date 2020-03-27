@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Footer from './Footer'
 import '../styles/index.scss'
 
 const Layout = ({ children }) => {
@@ -18,11 +19,14 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" 
+        crossOrigin="anonymous"/>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div className="container" id="content">
-        <main>{children}</main>
-        <footer>
-        </footer>
+          {children}
+        <Footer />
       </div>
     </>
   )
