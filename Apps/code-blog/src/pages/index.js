@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -19,8 +19,9 @@ const IndexPage = () => (
 						<div>
 							{data.allMarkdownRemark.edges.map(({node}) => (
 								<Post 
+									key={node.id}
 									title={node.frontmatter.title} 
-									path={node.frontmatter.path} 
+									slug={node.fields.slug} 
 									author={node.frontmatter.author} 
 									date={node.frontmatter.date} 
 									body={node.excerpt} 
@@ -49,7 +50,6 @@ query {
 					title
 					date (formatString: "MMM Do YYYY")
 					author
-					path
 					tags
 					image {
 						childImageSharp {
@@ -58,6 +58,9 @@ query {
 							}
 						}
 					}
+				}
+				fields {
+					slug
 				}
 				excerpt
 			}
