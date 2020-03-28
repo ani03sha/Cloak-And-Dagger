@@ -20,6 +20,10 @@ const Footer = () => (
                     <i className="fa fa-instagram fa-2x" />
                 </a>
                 </li>
+                <li><a href="https://www.google.com/in/anirshar" target="_blank" rel="noopener noreferrer" className="google">
+                    <i className="fa fa-google fa-2x" />
+                </a>
+                </li>
                 <li><a href="https://www.linkedin.com/in/anirshar" target="_blank" rel="noopener noreferrer" className="linkedin">
                     <i className="fa fa-linkedin fa-2x" />
                 </a>
