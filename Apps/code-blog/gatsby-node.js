@@ -24,7 +24,8 @@ exports.createPages = ({ actions, graphql }) => {
         singlePost: path.resolve('src/templates/single-post.js'),
         tagsPage: path.resolve('src/templates/tags-page.js'),
         tagsPost: path.resolve('src/templates/tags-post.js'),
-        postList: path.resolve('src/templates/post-list.js')
+        postList: path.resolve('src/templates/post-list.js'),
+        authorPosts: path.resolve('src/templates/author-posts.js')
     };
 
     return graphql(`
@@ -104,6 +105,16 @@ exports.createPages = ({ actions, graphql }) => {
                     numberOfPages
                 }
             });
+        })
+        authors.forEach(author => {
+            createPage({
+                path: `/author/${slugify(author.name)}`,
+                component: templates.authorPosts,
+                context: {
+                    authorName: author.name,
+                    imageUrl: author.imageUrl
+                }
+            })
         })
     })
 }
