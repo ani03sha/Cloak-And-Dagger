@@ -2,11 +2,12 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Post from '../components/Post';
+import PaginationLinks from '../components/PaginationLinks';
 
 
 const PostList = (props) => {
     const posts =   props.data.allMarkdownRemark.edges;
-    const { currentPage } = props.pageContext;
+    const { currentPage, numberOfPages } = props.pageContext;
 
     return (
         <Layout pageTitle={`Page: ${currentPage}`}>
@@ -21,6 +22,7 @@ const PostList = (props) => {
                       fluid={node.frontmatter.image.childImageSharp.fluid}
                 />
             ))}
+            <PaginationLinks currentPage={currentPage} numberOfPages={numberOfPages} /> 
         </Layout>
     );
 }
