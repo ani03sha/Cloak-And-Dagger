@@ -51,6 +51,20 @@ app.post('/book', (request, response) => {
 
 app.get('/book', (request, response) => {
     response.json(books);
-})
+});
+
+app.get('/book/:isbn', (request, response) => {
+    // Reading isbn from the URL
+    const isbn = request.params.isbn;
+    // Searching books array for the isbn
+    for(let book of books) {
+        if(book.isbn === isbn) {
+            response.json(book);
+            return;
+        }
+    }
+    // Sending 404 when not found something is a good practice
+    response.status(404).send('Book not found');
+});
 
 app.listen(port, () => console.log(`Book app is listening on port ${port}!`));
