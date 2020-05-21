@@ -67,4 +67,33 @@ app.get('/book/:isbn', (request, response) => {
     response.status(404).send('Book not found');
 });
 
+app.delete('/book/:isbn', (request, response) => {
+    // Reading isbn from the URL
+    const isbn = request.param.isbn;
+    // Remove item from the books array
+    books = books.filter(book => {
+        if(book.isbn !== isbn) {
+            return true;
+        }
+        return false;
+    });
+
+    response.send('Book is deleted');
+});
+
+app.post('/book/:isbn', (request, response) => {
+    // Reading isbn from the URL
+    const isbn = request.params.isbn;
+    const newBook = request.body;
+
+    // Remove item from the books array
+    for(let i = 0; i <books.length; i++) {
+        let book  = books[i];
+        if(book.isbn === isbn) {
+            books[i] = newBook;
+        }
+    }
+    response.send('Book is edited');
+}); 
+
 app.listen(port, () => console.log(`Book app is listening on port ${port}!`));

@@ -1,9 +1,40 @@
 const setEditModal = (isbn) => {
+    // Get information about the book using isbn
+    const xhttp = new XMLHttpRequest();
 
+    xhttp.open("GET", `http://localhost:3000/book/${isbn}`, false);
+    xhttp.send();
+
+    const book = JSON.parse(xhttp.responseText);
+
+    const {
+        title,
+        author,
+        publisher,
+        publishDate,
+        numberOfPages
+    } = book;
+
+    // Filling information about the book in the form inside the model
+    document.getElementById('isbn').value = isbn;
+    document.getElementById('title').value = title;
+    document.getElementById('author').value = author;
+    document.getElementById('publisher').value = publisher;
+    document.getElementById('publish_date').value = publishDate;
+    document.getElementById('numOfPages').value = numberOfPages;
+
+    // Setting up the action url for the book
+    document.getElementById('editForm').action = `http://localhost:3000/book/${isbn}`;
 }
 
-const deleteBook = (isbn) = {
+const deleteBook = (isbn) => {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("DELETE", `http://localhost:3000/book/${isbn}`, false);
+    xhttp.send();
 
+    console.log('Book is deleted');
+    // Reloading the page
+    location.reload();
 }
 
 const loadBooks = () => {
@@ -21,14 +52,12 @@ const loadBooks = () => {
                     <div class="card-body">
                         <h5 class="card-title">${book.title}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">${book.isbn}</h6>
-
                         <div>Author: ${book.author}</div>
                         <div>Publisher: ${book.publisher}</div>
                         <div>Number Of Pages: ${book.numOfPages}</div>
-
                         <hr>
 
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button types="button" class="btn btn-danger" onClick="deleteBook(${book.isbn})">Delete</button>
                         <button types="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#editBookModal" onClick="setEditModal(${book.isbn})">
                             Edit
